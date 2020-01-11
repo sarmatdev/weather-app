@@ -5,27 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
+
   <title>Weather App</title>
 </head>
 
 <body>
   <div class="container">
 
-    <div class="current">
-      <div class="title">
-        <h1 class="title__text">Current Location</h1>
-      </div>
-      <div class="card">
+    <header class="header">
+      <svg class="header__icon">
+        <use xlink:href="#symbol-defs_icon-location-pin"></use>
+      </svg>
+      <h1 class="header__title">Current Location</h1>
+    </header>
 
-        <div class="weather">
-          <h2 class="weather__city">City</h2>
-          <div class="weather__data">
-            <p class="weather__data-temp">25</p>
-            <p class="weather__data-hum">100</p>
+    <form action="#" class="search">
+      <input type="text" class="search__input" placeholder="Search City">
+      <button class="search__button">
+        <svg class="search__icon">
+          <use xlink:href="#symbol-defs_icon-magnifying-glass"></use>
+        </svg>
+      </button>
+    </form>
 
-          </div>
-        </div>
+    <div class="weather">
+      <div class="weather__container">
 
       </div>
     </div>

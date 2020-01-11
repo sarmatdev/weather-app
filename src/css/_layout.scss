@@ -1,70 +1,90 @@
 .container {
-  max-width: 120rem;
   height: 100vh;
-  width: 100%;
-  margin-top: 4rem;
   display: flex;
   justify-content: center;
-  // align-items: center;
-}
-
-.current {
-  width: 40rem;
-  height: 30rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
 }
 
-.title {
+.header {
   display: flex;
   align-items: center;
 
   &__icon {
-    width: 3rem;
     height: 3rem;
+    width: 3rem;
+    fill: #fff;
   }
-
-  &__text {
-
+  &__title {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
   }
-}
-
-.card {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  max-width: 40rem;
-  width: 100%;
-  height: 10rem;
-  background-color: #0d4575;
-  border-radius: 5px;
 }
 
 .weather {
-  width: inherit;
+  margin-top: 4rem;
+}
+
+.weather__container {
+  width: 30rem;
+  height: 50rem;
+  background: #dae3fd;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.search {
   display: flex;
   align-items: center;
-  font-size: 2rem;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 25rem;
 
-  &__city {
+  &__input {
+    font-family: inherit;
+    font-size: 2rem;
+    color: #000;
+    background-color: #f4f2f2;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -4.25rem;
 
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: #f0eeee;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: #ccc;
+    }
   }
 
-  &__data {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  &__input:focus + &__button {
+    background-color: #f0eeee;
+  }
 
-    &-temp {
+  &__button {
+    border: none;
+    background-color: #f4f2f2;
 
+    &:focus {
+      outline: none;
     }
 
-    &-hum {
-      margin-left: 1rem;
+    &:active {
+      transform: translateY(2px);
     }
+  }
+
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #ccc;
   }
 }

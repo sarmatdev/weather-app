@@ -1,13 +1,22 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
   height: 100vh;
-  background: linear-gradient(45deg, rgb(47, 150, 163), rgb(48, 62, 143));
-  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(125deg, #37BAD7 0%, #1E4851 100%);
+  font-family: 'Lato', sans-serif;
   color: #fff;
-  font-size: 62.5%;
 }

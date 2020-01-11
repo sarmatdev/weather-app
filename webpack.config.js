@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   entry: ['babel-polyfill', './src/js/app.js'],
@@ -17,7 +18,8 @@ module.exports = {
       template: './src/index.html',
       inject: false
     }),
-    new Dotenv()
+    new Dotenv(),
+    new SpriteLoaderPlugin()
   ],
   module: {
     rules: [
@@ -31,6 +33,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.svg$/,
+        use: ['svg-sprite-loader', 'svgo-loader']
       }
     ]
   }
