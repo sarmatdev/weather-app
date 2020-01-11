@@ -11,18 +11,25 @@ import '../css/main.scss';
 // SVG
 import '../img/symbol-defs.svg';
 
-const current = new Current();
+// Global state of the App
+const state = {};
 
-if ('geolocation' in navigator) {
-  navigator.geolocation.getCurrentPosition(
-    position => {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
+// ----- CONTROLLERS -----
 
-      current.getCurrentWether(lat, lon);
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
+// Current Location Controller
+const currentController = async () => {
+  // Create Current instance in state.current if it is empty
+  if (!state.current) state.current = new Current();
+
+  if (state.current.coordAvailable() < 2) {
+    await state.current.getCoords();
+    state.current.getCurrentWether();
+  }
+};
+
+// ----- VIEWS -----
+
+// App running
+window.addEventListener('load', () => {
+  currentController();
+});
