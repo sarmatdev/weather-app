@@ -2,7 +2,7 @@
 import Current from './Models/Current';
 
 // Views
-import * as base from './Views/base';
+import { elements } from './Views/base';
 import * as homeView from './Views/homeView';
 
 // CSS
@@ -21,13 +21,23 @@ const currentController = async () => {
   // Create Current instance in state.current if it is empty
   if (!state.current) state.current = new Current();
 
+  // Checking coords availability
   if (state.current.coordAvailable() < 2) {
+    // Getting coords
     await state.current.getCoords();
-    state.current.getCurrentWether();
+
+    // Getting Current Weather
+    await state.current.getCurrentWether();
+
+    // Prepare UI
+    /* Loading spinner */
+
+    // Render Results on UI
+    console.log(state.current);
+
+    homeView.renderCurrentWeather(state.current);
   }
 };
-
-// ----- VIEWS -----
 
 // App running
 window.addEventListener('load', () => {

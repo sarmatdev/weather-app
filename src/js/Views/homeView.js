@@ -1,21 +1,15 @@
-import { elements } from './base';
+import {elements} from './base';
 
-export const renderHome = (city, temp, hum) => {
+export const renderCurrentWeather = (current) => {
   const markup = `
-    <div class="current">
-      <div class="title">
-        <h1 class="title__text">Current Location</h1>
-      </div>
-      <div class="card">
-        <div class="weather">
-          <h2 class="weather__city">${city}</h2>
-          <div class="weather__data">
-            <p class="weather__data-temp">${temp}</p>
-            <p class="weather__data-hum">${hum}</p>
-          </div>
-        </div>
-      </div>
+  <div class="weather__info">
+    <h2>Country - ${current.country} </h2>
+    <h2>City - ${current.city}</h2>
+    <h2>Weather img - ${current.weather.icon}</h2>
+    <h2>Temp - ${current.weather.temp}</h2>
+  </div>
   `;
 
-  elements.container.innerHTML = markup;
-};
+  console.log(markup);
+  elements.weatherContainer.insertAdjacentHTML('afterbegin', markup);
+}

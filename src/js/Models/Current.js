@@ -20,7 +20,7 @@ export default class Current {
       const data = await getCurrentLocation();
       this.coords = [data.coords.latitude, data.coords.longitude];
     } catch (error) {
-      console.log(error)      
+      console.log(error);
     }
   }
 
@@ -35,7 +35,16 @@ export default class Current {
       const res = await axios.get(
         `${process.env.PROXY}api.openweathermap.org/data/2.5/weather?lat=${this.coords[0]}&lon=${this.coords[1]}&units=metric&appid=${process.env.APIKEY}`
       );
-      console.log(res);
+      console.log(res)
+      this.city = res.data.name;
+      this.country = res.data.sys.country;
+      this.weather = {
+        temp: Math.round(res.data.main.temp),
+        temp_max: Math.round(res.data.main.temp_max),
+        temp_min: Math.round(res.data.main.temp_min),
+        name: res.data.weather[0].main,
+        icon: res.data.weather[0].icon
+      };
     } catch (error) {
       console.log(error);
     }
