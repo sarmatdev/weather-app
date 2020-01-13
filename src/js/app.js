@@ -11,6 +11,29 @@ import '../css/main.scss';
 // SVG
 import '../img/symbol-defs.svg';
 
+/*
+  Hard code import SVG Weather icons
+  Temporary solution, will be fixed!
+*/
+import '../img/weather/01d.svg';
+import '../img/weather/01n.svg';
+import '../img/weather/02d.svg';
+import '../img/weather/02n.svg';
+import '../img/weather/03d.svg';
+import '../img/weather/03n.svg';
+import '../img/weather/04d.svg';
+import '../img/weather/04n.svg';
+import '../img/weather/09d.svg';
+import '../img/weather/09n.svg';
+import '../img/weather/10d.svg';
+import '../img/weather/10n.svg';
+import '../img/weather/11d.svg';
+import '../img/weather/11n.svg';
+import '../img/weather/13d.svg';
+import '../img/weather/13n.svg';
+import '../img/weather/50d.svg';
+import '../img/weather/50n.svg';
+
 // Global state of the App
 const state = {};
 
@@ -33,8 +56,6 @@ const currentController = async () => {
     /* Loading spinner */
 
     // Render Results on UI
-    console.log(state.current);
-
     homeView.renderCurrentWeather(state.current);
   }
 };
