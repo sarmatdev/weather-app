@@ -2,7 +2,7 @@
 import Current from './Models/Current';
 
 // Views
-import { elements } from './Views/base';
+import { elements, renderLoader, clearUI, clearLoader } from './Views/base';
 import * as homeView from './Views/homeView';
 
 // CSS
@@ -49,13 +49,15 @@ const currentController = async () => {
     // Getting coords
     await state.current.getCoords();
 
+    renderLoader(elements.weatherContainer)
     // Getting Current Weather
     await state.current.getCurrentWether();
 
     // Prepare UI
-    /* Loading spinner */
+    // clearUI(elements.weatherContainer);
 
     // Render Results on UI
+    clearLoader()
     homeView.renderCurrentWeather(state.current);
   }
 };
