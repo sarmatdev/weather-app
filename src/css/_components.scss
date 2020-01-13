@@ -1,0 +1,118 @@
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__location {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1e4851;
+    margin-top: 1rem;
+  }
+
+  &__info {
+    width: 40rem;
+    height: 100%;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-icon {
+      height: 14rem;
+      width: 14rem;
+    }
+
+    &-temp {
+      font-size: 30px;
+      color: #1e4851;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+
+    &-text {
+      font-size: 3rem;
+      color: #2EA7E0;
+    }
+
+    &-temp {
+      display: flex;
+      justify-content: center;
+      font-size: 3rem;
+      color: #1E4851;
+
+      & > * {
+        margin-right: 1rem;
+      }
+
+      & > *:last-child {
+        margin-right: 0;
+      }
+
+      &__min {
+      }
+
+      &__max {
+      }
+    }
+  }
+}
+
+// SEARCH
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 25rem;
+
+  &__input {
+    font-family: inherit;
+    font-size: 2rem;
+    color: #000;
+    background-color: #f4f2f2;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -4.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: #f0eeee;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: #ccc;
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: #f0eeee;
+  }
+
+  &__button {
+    border: none;
+    background-color: #f4f2f2;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+    fill: #ccc;
+  }
+}
