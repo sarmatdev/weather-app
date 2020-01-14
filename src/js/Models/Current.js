@@ -35,7 +35,7 @@ export default class Current {
       const res = await axios.get(
         `${process.env.PROXY}api.openweathermap.org/data/2.5/weather?lat=${this.coords[0]}&lon=${this.coords[1]}&units=metric&appid=${process.env.APIKEY}`
       );
-      console.log(res)
+      // console.log(res);
       this.city = res.data.name;
       this.country = res.data.sys.country;
       this.weather = {

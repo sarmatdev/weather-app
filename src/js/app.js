@@ -1,5 +1,6 @@
 // Models
 import Current from './Models/Current';
+import Forecast from './Models/Forecast';
 
 // Views
 import { elements, renderLoader, clearUI, clearLoader } from './Views/base';
@@ -41,7 +42,6 @@ const state = {};
 
 // Current Location Controller
 const currentController = async () => {
-
   // Render loader
   renderLoader(elements.weatherContainer);
 
@@ -64,7 +64,15 @@ const currentController = async () => {
   }
 };
 
+// Forecast controller
+const forecastController = async () => {
+  if (!state.forecast) state.forecast = new Forecast();
+
+  await state.forecast.getForecast();
+};
+
 // App running
 window.addEventListener('load', () => {
   currentController();
+  forecastController();
 });

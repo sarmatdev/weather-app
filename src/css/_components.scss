@@ -46,6 +46,10 @@
       font-size: 2.4rem;
       color: var(--color-primary-dark);
 
+      p {
+        padding: .5rem;
+      }
+
       &__icon {
         height: 3rem;
         width: 1rem;

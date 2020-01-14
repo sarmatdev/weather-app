@@ -17,9 +17,9 @@ export const renderCurrentWeather = current => {
             <svg class="weather__detail--minmax__icon">
               <use xlink:href="#symbol-defs_min-temp"></use>
             </svg>
-            <p>${current.weather.temp_min}</p>
+            <p>${current.weather.temp_min}ºc</p>
             <span>•</span>
-            <p>${current.weather.temp_max}</p>
+            <p>${current.weather.temp_max}ºc</p>
             <svg class="weather__detail--minmax__icon">
               <use xlink:href="#symbol-defs_max-temp"></use>
             </svg>
