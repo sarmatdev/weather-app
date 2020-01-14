@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -9,26 +9,25 @@
 .header {
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
 
   &__icon {
     height: 3rem;
     width: 3rem;
-    fill: #fff;
+    fill: var(--color-primary-dark);
   }
   &__title {
     font-size: 30px;
     font-weight: 300;
+    color: var(--color-primary-dark);
   }
 }
 
 .weather-container {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  width: 60rem;
+  width: 55rem;
   height: 30rem;
-  background: #dae3fd;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  background: var(--color-primary-light);
+  box-shadow: var(--shadow-dark);
   border-radius: 1rem;
+  margin-top: 3rem;
 }

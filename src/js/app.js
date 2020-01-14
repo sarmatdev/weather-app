@@ -41,6 +41,10 @@ const state = {};
 
 // Current Location Controller
 const currentController = async () => {
+
+  // Render loader
+  renderLoader(elements.weatherContainer);
+
   // Create Current instance in state.current if it is empty
   if (!state.current) state.current = new Current();
 
@@ -49,15 +53,13 @@ const currentController = async () => {
     // Getting coords
     await state.current.getCoords();
 
-    renderLoader(elements.weatherContainer)
     // Getting Current Weather
     await state.current.getCurrentWether();
 
-    // Prepare UI
-    // clearUI(elements.weatherContainer);
+    // Clear Loader
+    clearLoader();
 
     // Render Results on UI
-    clearLoader()
     homeView.renderCurrentWeather(state.current);
   }
 };
