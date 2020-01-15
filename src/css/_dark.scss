@@ -1,0 +1,51 @@
+.dark {
+  background-color: var(--color-primary-dark);
+
+  & .darkmode {
+    &__text {
+      color: var(--color-primary-light);
+    }
+  }
+
+  & .header {
+    &__icon {
+      fill: var(--color-primary-light);
+    }
+    &__title {
+      color: var(--color-primary-light);
+    }
+  }
+
+  & .weather-container {
+    background: var(--color-primary);
+  }
+
+  & .weather {
+    &__location {
+      color: var(--color-primary-light);
+    }
+
+    &__info-temp {
+      color: var(--color-grey-dark-1);
+
+    }
+
+    &__detail {
+      &--text {
+        font-size: 3rem;
+        color: var(--color-primary-dark);
+      }
+  
+      &--minmax {
+        color: var(--color-primary-dark);
+        &__icon {
+          height: 3rem;
+          width: 1rem;
+          fill: var(--color-grey-dark-1);
+          margin: 1rem;
+        }
+      }
+    }
+  }
+
+}
