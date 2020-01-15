@@ -2,7 +2,8 @@ export const elements = {
   container: document.querySelector('.container'),
   weatherContainer: document.querySelector('.weather-container'),
   weather: document.querySelector('.weather'),
-  body: document.querySelector('body')
+  body: document.querySelector('body'),
+  checkbox: document.querySelector('input[name="dark"]')
 };
 
 // Clear the whole UI

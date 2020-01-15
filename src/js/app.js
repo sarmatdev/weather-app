@@ -1,9 +1,16 @@
 // Models
 import Current from './Models/Current';
 import Forecast from './Models/Forecast';
+import DarkMode from './Models/Dark';
 
 // Views
-import { elements, renderLoader, clearUI, clearLoader } from './Views/base';
+import {
+  elements,
+  renderLoader,
+  clearUI,
+  clearLoader,
+  modeState
+} from './Views/base';
 import * as homeView from './Views/homeView';
 
 // CSS
@@ -41,25 +48,29 @@ const state = {};
 // ----- CONTROLLERS -----
 
 // DARKMODE CONTROLLER
-// const darkmodeController = () => {
-//   if (state.darkMode.dark === 0) {
-//     base.elements.body.classList.remove('dark');
-//     checkbox.checked = false;
-//   } else if (state.darkMode.dark === 1) {
-//     base.elements.body.classList.add('dark');
-//     checkbox.checked = true;
-//   }
-// };
 
-const checkbox = document.querySelector('input[name="dark"]')
+const darkmodeController = () => {
+  if (state.darkMode.dark === 1) {
+    elements.body.classList.add('dark');
+    checkbox.checked = true;
+  } else if (state.darkMode.dark === 0) {
+    elements.body.classList.remove('dark');
+    state.darkMode.saveMode();
+    checkbox.checked = false;
+  }
+};
+
+const checkbox = elements.checkbox;
 
 checkbox.addEventListener('click', () => {
-  if(checkbox.checked) {
-    elements.body.classList.add('dark')
-  } else {
-    elements.body.classList.remove('dark')
+  if (checkbox.checked) {
+    state.darkMode.dark = 1;
+    state.darkMode.saveMode();
+  } else if (!checkbox.checked) {
+    state.darkMode.dark = 0;
+    state.darkMode.saveMode();
   }
-})
+});
 
 // Current Location Controller
 const currentController = async () => {
@@ -96,5 +107,10 @@ const forecastController = async () => {
 window.addEventListener('load', () => {
   currentController();
   forecastController();
-  console.log(elements.dark)
+
+  state.darkMode = new DarkMode();
+  state.darkMode.readMode();
+  darkmodeController();
+  state.darkMode.readMode();
+  console.log(state.darkMode.dark);
 });
