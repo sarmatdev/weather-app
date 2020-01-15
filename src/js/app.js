@@ -40,6 +40,27 @@ const state = {};
 
 // ----- CONTROLLERS -----
 
+// DARKMODE CONTROLLER
+// const darkmodeController = () => {
+//   if (state.darkMode.dark === 0) {
+//     base.elements.body.classList.remove('dark');
+//     checkbox.checked = false;
+//   } else if (state.darkMode.dark === 1) {
+//     base.elements.body.classList.add('dark');
+//     checkbox.checked = true;
+//   }
+// };
+
+const checkbox = document.querySelector('input[name="dark"]')
+
+checkbox.addEventListener('click', () => {
+  if(checkbox.checked) {
+    elements.body.classList.add('dark')
+  } else {
+    elements.body.classList.remove('dark')
+  }
+})
+
 // Current Location Controller
 const currentController = async () => {
   // Render loader
@@ -75,4 +96,5 @@ const forecastController = async () => {
 window.addEventListener('load', () => {
   currentController();
   forecastController();
+  console.log(elements.dark)
 });

@@ -6,23 +6,6 @@
   flex-direction: column;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-top: 3rem;
-
-  &__icon {
-    height: 3rem;
-    width: 3rem;
-    fill: var(--color-primary-dark);
-  }
-  &__title {
-    font-size: 30px;
-    font-weight: 300;
-    color: var(--color-primary-dark);
-  }
-}
-
 .weather-container {
   width: 55rem;
   height: 30rem;

@@ -13,9 +13,6 @@ export default class Forecast {
       const result = res.data.list[0].dt
 
       console.log(moment().toString(result));
-      console.log(res.data.list[0].dt_txt);
-
-      console.log(result);
 
     } catch (error) {
       console.log(error);

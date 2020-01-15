@@ -1,7 +1,8 @@
 export const elements = {
   container: document.querySelector('.container'),
   weatherContainer: document.querySelector('.weather-container'),
-  weather: document.querySelector('.weather')
+  weather: document.querySelector('.weather'),
+  body: document.querySelector('body')
 };
 
 // Clear the whole UI
