@@ -1,15 +1,14 @@
 export default class Dark {
   constructor() {
-    this.dark = '';
+    this.dark;
   }
 
   saveMode() {
-    localStorage.setItem('dark', this.dark);
-    console.log('Mode saved');
+    localStorage.setItem('dark', JSON.stringify(this.dark));
   }
 
   readMode() {
-    console.log('Mode readed');
-    localStorage.getItem('dark')
+    const dark = JSON.parse(localStorage.getItem('dark'));
+    if (dark) this.dark = dark;
   }
 }

@@ -44,19 +44,18 @@ import '../img/weather/50n.svg';
 
 // Global state of the App
 const state = {};
+window.state = state;
 
 // ----- CONTROLLERS -----
 
 // DARKMODE CONTROLLER
-
 const darkmodeController = () => {
   if (state.darkMode.dark === 1) {
-    elements.body.classList.add('dark');
     checkbox.checked = true;
+    elements.body.classList.add('dark');
   } else if (state.darkMode.dark === 0) {
-    elements.body.classList.remove('dark');
-    state.darkMode.saveMode();
     checkbox.checked = false;
+    elements.body.classList.remove('dark');
   }
 };
 
@@ -66,9 +65,11 @@ checkbox.addEventListener('click', () => {
   if (checkbox.checked) {
     state.darkMode.dark = 1;
     state.darkMode.saveMode();
+    elements.body.classList.add('dark');
   } else if (!checkbox.checked) {
     state.darkMode.dark = 0;
     state.darkMode.saveMode();
+    elements.body.classList.remove('dark');
   }
 });
 
@@ -111,6 +112,4 @@ window.addEventListener('load', () => {
   state.darkMode = new DarkMode();
   state.darkMode.readMode();
   darkmodeController();
-  state.darkMode.readMode();
-  console.log(state.darkMode.dark);
 });
