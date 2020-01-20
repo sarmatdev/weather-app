@@ -27,6 +27,5 @@ export const renderCurrentWeather = current => {
         </div>
       </div>
   `;
-
   elements.weatherContainer.insertAdjacentHTML('afterbegin', markup);
 };

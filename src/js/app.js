@@ -85,7 +85,9 @@ const currentController = async () => {
   if (state.current.coordAvailable() < 2) {
     // Getting coords
     await state.current.getCoords();
+  }
 
+  if (state.current.coordAvailable() === 2) {
     // Getting Current Weather
     await state.current.getCurrentWether();
 
@@ -96,10 +98,16 @@ const currentController = async () => {
     homeView.renderCurrentWeather(state.current);
   }
 };
+const weather = elements.weatherContainer;
 
+weather.addEventListener('click', () => {
+  console.log('Weather card clicked');
+  const { current } = state;
+  forecastController(current);
+});
 // Forecast controller
-const forecastController = async () => {
-  if (!state.forecast) state.forecast = new Forecast();
+const forecastController = async (current) => {
+  if (!state.forecast && state.current) state.forecast = new Forecast(current);
 
   await state.forecast.getForecast();
 };
@@ -107,7 +115,6 @@ const forecastController = async () => {
 // App running
 window.addEventListener('load', () => {
   currentController();
-  forecastController();
 
   state.darkMode = new DarkMode();
   state.darkMode.readMode();
