@@ -124,7 +124,7 @@ const forecastController = async current => {
   // Handle navigation buttons
   elements.forecastNav.addEventListener('click', e => {
     const id = e.target.closest('.day').dataset.itemid;
-    forecastView.clearForecast()
+    forecastView.clearForecast();
 
     // Render days group
     state.forecast.weather[id].forEach(el => forecastView.renderForecast(el));

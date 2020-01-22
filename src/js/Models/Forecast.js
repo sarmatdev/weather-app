@@ -37,7 +37,7 @@ export default class Forecast {
       results.forEach(result => buttonDays.push(result.button_day));
       results.forEach(result => days.push(result.day));
       let uniqueDays = getUniqueDays(days);
-      let uniqueButtonDays = getUniqueButtonDays(buttonDays)
+      let uniqueButtonDays = getUniqueButtonDays(buttonDays);
 
       function getUniqueDays(arr) {
         return Array.from(new Set(arr));
@@ -47,7 +47,7 @@ export default class Forecast {
         return Array.from(new Set(arr));
       }
 
-      this.buttonDays = uniqueButtonDays
+      this.buttonDays = uniqueButtonDays;
       this.weather = [];
 
       for (let i = 0; i < uniqueDays.length; i++) {

@@ -27,5 +27,5 @@ export const renderForecast = result => {
       </div>
     </div>
     `;
-  elements.forecastContainer.insertAdjacentHTML('afterbegin', markup);
+  elements.forecastContainer.insertAdjacentHTML('beforeend', markup);
 };
