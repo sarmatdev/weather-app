@@ -12,6 +12,7 @@ import {
   modeState
 } from './Views/base';
 import * as homeView from './Views/homeView';
+import * as forecastView from './Views/forecastView';
 
 // CSS
 import '../css/main.scss';
@@ -98,18 +99,38 @@ const currentController = async () => {
     homeView.renderCurrentWeather(state.current);
   }
 };
-const weather = elements.weatherContainer;
 
-weather.addEventListener('click', () => {
-  console.log('Weather card clicked');
+elements.weatherContainer.addEventListener('click', () => {
   const { current } = state;
   forecastController(current);
 });
+
 // Forecast controller
-const forecastController = async (current) => {
+const forecastController = async current => {
   if (!state.forecast && state.current) state.forecast = new Forecast(current);
 
   await state.forecast.getForecast();
+
+  // Render Forecast navigation buttons
+  state.forecast.buttonDays.forEach((el, index) =>
+    forecastView.renderForecastNav(el, index)
+  );
+
+  // forecastView.renderForecast(state.forecast.weather[1])
+  // for (let i = 0; i < state.forecast.weather.length; i++) {
+  //   forecastView.renderForecast(state.forecast.weather[i]);
+  // }
+
+  // Handle navigation buttons
+  elements.forecastNav.addEventListener('click', e => {
+    const id = e.target.closest('.day').dataset.itemid;
+    forecastView.clearForecast()
+
+    // Render days group
+    state.forecast.weather[id].forEach(el => forecastView.renderForecast(el));
+
+    // state.forecast.weather.forEach(el => forecastView.renderForecast(el));
+  });
 };
 
 // App running

@@ -3,7 +3,12 @@ export const elements = {
   weatherContainer: document.querySelector('.weather-container'),
   weather: document.querySelector('.weather'),
   body: document.querySelector('body'),
-  checkbox: document.querySelector('input[name="dark"]')
+  checkbox: document.querySelector('input[name="dark"]'),
+  forecast: document.querySelector('.forecast'),
+  forecastNav: document.querySelector('.forecast__nav'),
+  forecastWeather: document.querySelector('.forecast__weather'),
+  forecastNavButtons: document.querySelectorAll('.day'),
+  forecastContainer: document.querySelector('.forecasts__container')
 };
 
 // Clear the whole UI
