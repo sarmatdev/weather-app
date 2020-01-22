@@ -189,8 +189,8 @@ label:active:after {
   display: flex;
   list-style: none;
   border-radius: 1rem;
-  background-color: #17BCE0;
-  padding: .5rem;
+  background-color: #17bce0;
+  padding: 0.5rem;
 }
 
 .day {
@@ -199,10 +199,10 @@ label:active:after {
   border: 1px solid #333;
   border-radius: 1rem;
   flex: 1;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding: 10px 10px;
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .forecast__nav li:hover {
@@ -213,6 +213,11 @@ label:active:after {
 
 .forecast__nav li:active {
   transform: translateY(0);
+}
+
+.forecasts__container {
+  display: flex;
+  flex-direction: column;
 }
 
 .forecast__weather {
