@@ -6,7 +6,7 @@ export const clearForecast = () => {
 
 export const renderForecastNav = (day, id) => {
   const markup = `<li class="day" data-itemid=${id}>${day}</li>`;
-  elements.forecastNav.insertAdjacentHTML('beforeend', markup);
+  forecastNav.insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderForecast = result => {
@@ -27,5 +27,5 @@ export const renderForecast = result => {
       </div>
     </div>
     `;
-  elements.forecastContainer.insertAdjacentHTML('beforeend', markup);
+  // elements.forecastContainer.insertAdjacentHTML('beforeend', markup);
 };

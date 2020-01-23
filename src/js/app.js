@@ -51,6 +51,7 @@ window.state = state;
 
 // DARKMODE CONTROLLER
 const darkmodeController = () => {
+  const checkbox = document.querySelector('input[name="dark"]');
   if (state.darkMode.dark === 1) {
     checkbox.checked = true;
     elements.body.classList.add('dark');
@@ -58,26 +59,25 @@ const darkmodeController = () => {
     checkbox.checked = false;
     elements.body.classList.remove('dark');
   }
+
+  checkbox.addEventListener('click', () => {
+    if (checkbox.checked) {
+      state.darkMode.dark = 1;
+      state.darkMode.saveMode();
+      elements.body.classList.add('dark');
+    } else if (!checkbox.checked) {
+      state.darkMode.dark = 0;
+      state.darkMode.saveMode();
+      elements.body.classList.remove('dark');
+    }
+  });
 };
-
-const checkbox = elements.checkbox;
-
-checkbox.addEventListener('click', () => {
-  if (checkbox.checked) {
-    state.darkMode.dark = 1;
-    state.darkMode.saveMode();
-    elements.body.classList.add('dark');
-  } else if (!checkbox.checked) {
-    state.darkMode.dark = 0;
-    state.darkMode.saveMode();
-    elements.body.classList.remove('dark');
-  }
-});
 
 // Current Location Controller
 const currentController = async () => {
   // Render loader
-  renderLoader(elements.weatherContainer);
+  const parent = document.querySelector('.weather-container');
+  renderLoader(parent);
 
   // Create Current instance in state.current if it is empty
   if (!state.current) state.current = new Current();
@@ -96,14 +96,20 @@ const currentController = async () => {
     clearLoader();
 
     // Render Results on UI
-    homeView.renderCurrentWeather(state.current);
+    homeView.renderCurrentWeather(state.current, parent);
+
+    parent.addEventListener('click', () => {
+      const { current } = state;
+      forecastController(current);
+    });
+
   }
 };
 
-elements.weatherContainer.addEventListener('click', () => {
-  const { current } = state;
-  forecastController(current);
-});
+// elements.weatherContainer.addEventListener('click', () => {
+//   const { current } = state;
+//   forecastController(current);
+// });
 
 // Forecast controller
 const forecastController = async current => {
@@ -112,9 +118,9 @@ const forecastController = async current => {
   await state.forecast.getForecast();
 
   // Render Forecast navigation buttons
-  state.forecast.buttonDays.forEach((el, index) =>
-    forecastView.renderForecastNav(el, index)
-  );
+  // state.forecast.buttonDays.forEach((el, index) =>
+  //   forecastView.renderForecastNav(el, index)
+  // );
 
   // forecastView.renderForecast(state.forecast.weather[1])
   // for (let i = 0; i < state.forecast.weather.length; i++) {
@@ -122,22 +128,26 @@ const forecastController = async current => {
   // }
 
   // Handle navigation buttons
-  elements.forecastNav.addEventListener('click', e => {
-    const id = e.target.closest('.day').dataset.itemid;
-    forecastView.clearForecast();
 
-    // Render days group
-    state.forecast.weather[id].forEach(el => forecastView.renderForecast(el));
+  // elements.forecastNav.addEventListener('click', e => {
+  //   const id = e.target.closest('.day').dataset.itemid;
+  //   forecastView.clearForecast();
 
-    // state.forecast.weather.forEach(el => forecastView.renderForecast(el));
-  });
+  //   // Render days group
+  //   state.forecast.weather[id].forEach(el => forecastView.renderForecast(el));
+
+  //   // state.forecast.weather.forEach(el => forecastView.renderForecast(el));
+  // });
 };
 
 // App running
 window.addEventListener('load', () => {
-  currentController();
+  // clearUI(elements.container);
+  // homeView.renderHome();
 
   state.darkMode = new DarkMode();
   state.darkMode.readMode();
-  darkmodeController();
+  // darkmodeController();
+
+  // currentController();
 });

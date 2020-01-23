@@ -32,7 +32,9 @@ export const renderLoader = parent => {
       </div>
   `;
 
+  // elements.weatherContainer.insertAdjacentHTML('afterbegin', loader);
   parent.insertAdjacentHTML('afterbegin', loader);
+  // elements.weatherContainer.innerHTML = loader;
 };
 
 export const clearLoader = () => {

@@ -1,6 +1,28 @@
 import { elements } from './base';
 
-export const renderCurrentWeather = current => {
+export const renderHome = () => {
+  const markup = `
+  <div class="darkmode animated fadeInLeft faster">
+    <span class="darkmode__text">Dark mode:</span>
+    <input type="checkbox" name="dark" id="switch" /><label for="switch">Toggle</label>
+  </div>
+
+  <header class="header  animated fadeInDown fast">
+    <svg class="header__icon">
+      <use xlink:href="#symbol-defs_icon-location-pin"></use>
+    </svg>
+    <h1 class="header__title">Current Location</h1>
+  </header>
+
+  <div class="weather-container animated zoomIn faster">
+
+  </div>
+  `;
+
+  elements.container.innerHTML = markup;
+};
+
+export const renderCurrentWeather = (current, parent) => {
   const markup = `
       <div class="weather">
         <h1 class="weather__location">${current.city}, ${current.country}</h1>
@@ -27,5 +49,5 @@ export const renderCurrentWeather = current => {
         </div>
       </div>
   `;
-  elements.weatherContainer.insertAdjacentHTML('afterbegin', markup);
+  parent.insertAdjacentHTML('afterbegin', markup);
 };
