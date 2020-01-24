@@ -98,11 +98,15 @@ const currentController = async () => {
     // Render Results on UI
     homeView.renderCurrentWeather(state.current, parent);
 
+    let isOpen = true;
     parent.addEventListener('click', () => {
-      const { current } = state;
-      forecastController(current);
+      if (isOpen === true) {
+        parent.classList.add('open');
+        const { current } = state;
+        forecastController(current);
+        isOpen = false;
+      }
     });
-
   }
 };
 
@@ -115,13 +119,20 @@ const currentController = async () => {
 const forecastController = async current => {
   if (!state.forecast && state.current) state.forecast = new Forecast(current);
 
+  // Getting Forecast data
   await state.forecast.getForecast();
 
+  // Render Forecast Container
+  const weather = document.querySelector('.weather');
+  forecastView.renderForecastContainer(weather);
+  
   // Render Forecast navigation buttons
-  // state.forecast.buttonDays.forEach((el, index) =>
-  //   forecastView.renderForecastNav(el, index)
-  // );
+  const navbar = document.querySelector('.forecast__nav');
+  state.forecast.buttonDays.forEach((el, index) =>
+    forecastView.renderForecastNav(el, index, navbar)
+  );
 
+  const forecastContainer = document.querySelector('.forecasts__container');
   // forecastView.renderForecast(state.forecast.weather[1])
   // for (let i = 0; i < state.forecast.weather.length; i++) {
   //   forecastView.renderForecast(state.forecast.weather[i]);
@@ -129,25 +140,25 @@ const forecastController = async current => {
 
   // Handle navigation buttons
 
-  // elements.forecastNav.addEventListener('click', e => {
-  //   const id = e.target.closest('.day').dataset.itemid;
-  //   forecastView.clearForecast();
+  navbar.addEventListener('click', e => {
+    const id = e.target.closest('.day').dataset.itemid;
+    forecastView.clearForecast(forecastContainer);
 
-  //   // Render days group
-  //   state.forecast.weather[id].forEach(el => forecastView.renderForecast(el));
+    // Render days group
+    state.forecast.weather[id].forEach(el => forecastView.renderForecast(el, forecastContainer));
 
-  //   // state.forecast.weather.forEach(el => forecastView.renderForecast(el));
-  // });
+    // state.forecast.weather.forEach(el => forecastView.renderForecast(el, forecastContainer));
+  });
 };
 
 // App running
 window.addEventListener('load', () => {
-  // clearUI(elements.container);
-  // homeView.renderHome();
+  clearUI(elements.container);
+  homeView.renderHome();
 
   state.darkMode = new DarkMode();
   state.darkMode.readMode();
-  // darkmodeController();
+  darkmodeController();
 
-  // currentController();
+  currentController();
 });

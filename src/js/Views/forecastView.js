@@ -1,15 +1,29 @@
 import { elements } from './base';
 
-export const clearForecast = () => {
-  elements.forecastContainer.innerHTML = '';
+export const clearForecast = parent => {
+  parent.innerHTML = '';
 };
 
-export const renderForecastNav = (day, id) => {
+export const renderForecastContainer = parent => {
+  const markup = `
+  <div class="forecast">
+  <nav>
+    <ul class="forecast__nav">
+    </ul>
+  </nav>
+
+  <div class="forecasts__container"></div>
+</div>
+  `;
+  parent.insertAdjacentHTML('afterend', markup);
+};
+
+export const renderForecastNav = (day, id, parent) => {
   const markup = `<li class="day" data-itemid=${id}>${day}</li>`;
-  forecastNav.insertAdjacentHTML('beforeend', markup);
+  parent.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderForecast = result => {
+export const renderForecast = (result, parent) => {
   const markup = `
     <div class="forecast__weather animated fadeInUp faster">
       <div class="forecast__weather__date">${result.date}</div>
@@ -27,5 +41,5 @@ export const renderForecast = result => {
       </div>
     </div>
     `;
-  // elements.forecastContainer.insertAdjacentHTML('beforeend', markup);
+  parent.insertAdjacentHTML('beforeend', markup);
 };
