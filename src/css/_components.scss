@@ -125,7 +125,6 @@
   }
 }
 
-
 // DARLMODE TOGGLE
 .darkmode {
   position: absolute;
@@ -216,6 +215,10 @@ label:active:after {
   transform: translateY(0);
 }
 
+.forecast__nav li.active {
+  background-color: var(--color-primary-dark);
+}
+
 .forecasts__container {
   display: flex;
   flex-direction: column;
@@ -227,7 +230,7 @@ label:active:after {
   border-radius: 1rem;
   padding: 1rem;
   margin-top: 1.5rem;
-  background-color: #2EA7E0;
+  background-color: #2ea7e0;
 
   &__date {
     display: flex;

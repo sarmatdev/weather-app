@@ -125,7 +125,7 @@ const forecastController = async current => {
   // Render Forecast Container
   const weather = document.querySelector('.weather');
   forecastView.renderForecastContainer(weather);
-  
+
   // Render Forecast navigation buttons
   const navbar = document.querySelector('.forecast__nav');
   state.forecast.buttonDays.forEach((el, index) =>
@@ -142,12 +142,20 @@ const forecastController = async current => {
 
   navbar.addEventListener('click', e => {
     const id = e.target.closest('.day').dataset.itemid;
+    const buttons = document.querySelectorAll('.day');
+
+    // Adding active class for active button
+    buttons.forEach(el => {
+      el.classList.remove('active');
+    });
+    buttons[id].classList.add('active');
+
     forecastView.clearForecast(forecastContainer);
 
-    // Render days group
-    state.forecast.weather[id].forEach(el => forecastView.renderForecast(el, forecastContainer));
-
-    // state.forecast.weather.forEach(el => forecastView.renderForecast(el, forecastContainer));
+    // Render dayly forecast list
+    state.forecast.weather[id].forEach(el =>
+      forecastView.renderForecast(el, forecastContainer)
+    );
   });
 };
 
