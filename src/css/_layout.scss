@@ -6,27 +6,7 @@
   flex-direction: column;
 }
 
-.weather-container {
-  width: 50rem;
-  // min-height: 10rem;
-  height: auto;
-  background: var(--color-primary-light);
-  box-shadow: var(--shadow-dark);
-  border-radius: 1rem;
-  margin-top: 3rem;
-  cursor: pointer;
-  transition: transform 0.5s;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(2px);
-  }
-}
-
-.weather-container.open {
+.open {
   opacity: 1;
   box-shadow: var(--shadow-dark);
   cursor: default;
@@ -39,13 +19,4 @@
   &:active {
     transform: translateY(0px);
   }
-}
-
-.forecast {
-  width: 50rem;
-  height: auto;
-  margin-top: 2rem;
-  background-color: var(--color-primary);
-  box-shadow: var(--shadow-dark);
-  border-radius: 1rem;
 }

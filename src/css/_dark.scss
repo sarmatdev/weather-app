@@ -15,12 +15,9 @@
       color: var(--color-primary-light);
     }
   }
-
-  & .weather-container {
-    background: var(--color-primary);
-  }
-
+  
   & .weather {
+    background: var(--color-primary);
     &__location {
       color: var(--color-primary-light);
     }
