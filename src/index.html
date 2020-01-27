@@ -18,148 +18,77 @@
       <span class="darkmode__text">Dark mode:</span>
       <input type="checkbox" name="dark" id="switch" /><label for="switch">Toggle</label>
     </div>
-    
+
     <header class="header  animated fadeInDown fast">
       <svg class="header__icon">
         <use xlink:href="#symbol-defs_icon-location-pin"></use>
       </svg>
       <h1 class="header__title">Current Location</h1>
     </header>
-    
-    <div class="weather-container">
-    
-      <div class="weather">
-        <h1 class="weather__location">Vladikavkaz, RU</h1>
-        <div class="weather__info">
-          <svg class="weather__info-icon">
-            <use xlink:href="#50d"></use>
+
+
+    <div class="weather">
+      <h1 class="weather__location">Vladikavkaz, RU</h1>
+      <div class="weather__info">
+        <svg class="weather__info-icon">
+          <use xlink:href="#50d"></use>
+        </svg>
+        <div class="weather__info-temp">5ºC</div>
+      </div>
+
+      <div class="weather__detail">
+        <p class="weather__detail--text">Snow</p>
+        <div class="weather__detail--minmax">
+          <svg class="weather__detail--minmax__icon">
+            <use xlink:href="#symbol-defs_icon-min-temp"></use>
           </svg>
-          <div class="weather__info-temp">5ºC</div>
-        </div>
-    
-        <div class="weather__detail">
-          <p class="weather__detail--text">Snow</p>
-          <div class="weather__detail--minmax">
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_min-temp"></use>
-            </svg>
-            <p>3</p>
-            <span>•</span>
-            <p>7</p>
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_max-temp"></use>
-            </svg>
-          </div>
+          <p>3</p>
+          <span>•</span>
+          <p>7</p>
+          <svg class="weather__detail--minmax__icon">
+            <use xlink:href="#symbol-defs_icon-max-temp"></use>
+          </svg>
         </div>
       </div>
-    
     </div>
-    
+
+
     <div class="forecast">
+
+      <header class="forecast__header">Forecast for the next 5 days</header>
+
       <nav>
         <ul class="forecast__nav">
-          <li class="day">Mon, 20</li>
-          <li class="day">Tue, 20</li>
-          <li class="day">Wed, 20</li>
-          <li class="day">Thu, 20</li>
-          <li class="day">Fri, 20</li>
+          <li class="forecast__nav__day">Mon, 20</li>
+          <li class="forecast__nav__day">Tue, 20</li>
+          <li class="forecast__nav__day">Wed, 20</li>
+          <li class="forecast__nav__day">Thu, 20</li>
+          <li class="forecast__nav__day">Fri, 20</li>
         </ul>
       </nav>
-    
-      <div class="forecasts__container">
-    
-        <div class="forecast__weather">
-          <div class="forecast__weather__date">Monday, 19th January, 18:00</div>
-          <div class="forecast__weather__details">
-            <div class="forecast__weather__details__info">
-              <svg class="forecast__weather__details--icon">
+
+
+      <ul class="forecast__list">
+
+        <li class="forecast__item">
+          <h3 class="forecast__item__name">Monday, 27th January, 09:00</h3>
+          <div class="forecast__item__details">
+            <div class="forecast__item__details__info">
+              <svg class="forecast__item__details__info--icon">
                 <use xlink:href="#50d"></use>
               </svg>
-              <div class="forecast__weather__details__text">
-                <div class="forecast__weather__details__text--phrase">Snow</div>
-                <div class="forecast__weather__details__text--minmax">3<span>•</span>7</div>
-              </div>
             </div>
-            <div class="forecast__weather__details__temp">5ºC</div>
-          </div>
-        </div>
-    
-      </div>
-    </div> -->
-
-    <!-- FORECAST VIEW -->
-
-    <!-- <div class="darkmode animated fadeInLeft faster">
-      <span class="darkmode__text">Dark mode:</span>
-      <input type="checkbox" name="dark" id="switch" /><label for="switch">Toggle</label>
-    </div>
-    
-    <header class="header  animated fadeInDown fast">
-      <svg class="header__icon">
-        <use xlink:href="#symbol-defs_icon-location-pin"></use>
-      </svg>
-      <h1 class="header__title">Vladikavkaz, RU</h1>
-    </header>
-    
-    <div class="weather-container open">
-    
-      <div class="weather">
-        <h1 class="weather__location">Current Weather</h1>
-        <div class="weather__info">
-          <svg class="weather__info-icon">
-            <use xlink:href="#50d"></use>
-          </svg>
-          <div class="weather__info-temp">5ºC</div>
-        </div>
-    
-        <div class="weather__detail">
-          <p class="weather__detail--text">Snow</p>
-          <div class="weather__detail--minmax">
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_min-temp"></use>
-            </svg>
-            <p>3</p>
-            <span>•</span>
-            <p>7</p>
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_max-temp"></use>
-            </svg>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-    
-    <div class="forecast">
-      <nav>
-        <ul class="forecast__nav">
-          <li class="day">Mon, 20</li>
-          <li class="day">Tue, 20</li>
-          <li class="day">Wed, 20</li>
-          <li class="day">Thu, 20</li>
-          <li class="day">Fri, 20</li>
-        </ul>
-      </nav>
-    
-      <div class="forecasts__container">
-    
-        <div class="forecast__weather">
-          <div class="forecast__weather__date">Monday, 19th January, 18:00</div>
-          <div class="forecast__weather__details">
-            <div class="forecast__weather__details__info">
-              <svg class="forecast__weather__details--icon">
-                <use xlink:href="#50d"></use>
-              </svg>
-              <div class="forecast__weather__details__text">
-                <div class="forecast__weather__details__text--phrase">Snow</div>
-                <div class="forecast__weather__details__text--minmax">3<span>•</span>7</div>
-              </div>
+            <div class="forecast__item__details__data">
+              <p class="forecast__item__details__data--phrase">Cloud</p>
+              <div class="forecast__item__details__data--minmax">1ºC•3ºC</div>
             </div>
-            <div class="forecast__weather__details__temp">5ºC</div>
+
+            <div class="forecast__item__details__temp">3ºC</div>
           </div>
-        </div>
-    
-      </div>
+        </li>
+
+      </ul>
+
     </div> -->
 
   </div>

@@ -3,15 +3,49 @@
   align-items: center;
   margin-top: 3rem;
 
+  @media screen and (max-width: $bp-largest) {
+    margin-top: 2.4rem;
+  }
+
+  @media screen and (max-width: $bp-medium) {
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: $bp-small) {
+    margin-top: 3rem;
+  }
+
+  @media screen and (max-width: $bp-tiny) {
+    margin-top: 4rem;
+  }
+
   &__icon {
     height: 3rem;
     width: 3rem;
     fill: var(--color-primary-dark);
+
+    @media screen and (max-width: $bp-largest) {
+      height: 2.4rem;
+      weight: 2.4rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      height: 2rem;
+      weight: 2rem;
+    }
   }
   &__title {
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 300;
     color: var(--color-primary-dark);
+
+    @media screen and (max-width: $bp-largest) {
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -28,6 +62,21 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  @media screen and (max-width: $bp-largest) {
+    width: 45rem;
+  }
+  @media screen and (max-width: $bp-medium) {
+    width: 40rem;
+  }
+  @media screen and (max-width: $bp-small) {
+    width: 35rem;
+  }
+
+
+  @media screen and (max-width: $bp-tiny) {
+    width: 30rem;
+  }
+
   &:hover {
     transform: translateY(-2px);
   }
@@ -41,6 +90,20 @@
     font-weight: 300;
     color: var(--color-primary);
     margin-top: 1rem;
+
+    @media screen and (max-width: $bp-largest) {
+      font-size: 2.8rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: $bp-small) {
+      font-size: 2rem;
+    }
+
+    
   }
 
   &__info {
@@ -50,15 +113,42 @@
     align-items: center;
     justify-content: space-between;
 
+    @media screen and (max-width: $bp-medium) {
+      justify-content: space-around;
+    }
+
     &-icon {
       height: 16rem;
       width: 16rem;
+
+      @media screen and (max-width: $bp-largest) {
+        height: 15rem;
+        width: 15rem;
+      }
+
+      @media screen and (max-width: $bp-medium) {
+        height: 14rem;
+        width: 14rem;
+      }
+
+      @media screen and (max-width: $bp-small) {
+        height: 12rem;
+        width: 12rem;
+      }
     }
 
     &-temp {
       font-size: 5rem;
       font-weight: 300;
       color: var(--color-primary);
+
+      @media screen and (max-width: $bp-largest) {
+        font-size: 4rem;
+      }
+
+      @media screen and (max-width: $bp-tiny) {
+        font-size: 3rem;
+      }
     }
   }
 
@@ -70,6 +160,19 @@
     &--text {
       font-size: 3rem;
       color: var(--color-primary);
+      @media screen and (max-width: $bp-largest) {
+        font-size: 2.8rem;
+      }
+      @media screen and (max-width: $bp-medium) {
+        font-size: 2.4rem;
+      }
+      @media screen and (max-width: $bp-small) {
+        font-size: 2rem;
+      }
+
+      @media screen and (max-width: $bp-tiny) {
+        font-size: 1.6rem;
+      }
     }
 
     &--minmax {
@@ -78,6 +181,15 @@
       align-items: center;
       font-size: 2.4rem;
       color: var(--color-primary-dark);
+
+      @media screen and (max-width: $bp-largest) {
+        font-size: 2rem;
+      }
+
+      @media screen and (max-width: $bp-medium) {
+        font-size: 1.8rem;
+      }
+      
 
       p {
         padding: 0.5rem;
@@ -88,6 +200,11 @@
         width: 1rem;
         fill: var(--color-primary-dark);
         margin: 1rem;
+
+        @media screen and (max-width: $bp-medium) {
+          height: 2rem;
+          width: 0.5rem;
+        }
       }
     }
   }
@@ -154,6 +271,10 @@
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--color-primary);
+
+    @media screen and (max-width: $bp-medium) {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -172,6 +293,11 @@ label {
   display: block;
   border-radius: 20px;
   position: relative;
+
+  @media screen and (max-width: $bp-medium) {
+    width: 4rem;
+    height: 2rem;
+  }
 }
 
 label:after {
@@ -184,6 +310,11 @@ label:after {
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
+
+  @media screen and (max-width: $bp-medium) {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 input:checked + label {
@@ -197,6 +328,9 @@ input:checked + label:after {
 
 label:active:after {
   width: 30px;
+  @media screen and (max-width: $bp-medium) {
+    width: 2rem;
+  }
 }
 
 // FORECAST
@@ -210,30 +344,65 @@ label:active:after {
   margin-top: 2rem;
   border-radius: 1rem;
 
+  @media screen and (max-width: $bp-largest) {
+    width: 45rem;
+  }
+
+  @media screen and (max-width: $bp-medium) {
+    width: 40rem;
+  }
+
   &__header {
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 2rem;
+    color: var(--color-primary-dark);
+
+
+    @media screen and (max-width: $bp-largest) {
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      font-size: 2rem;
+    }
   }
 
   &__nav {
     display: flex;
     list-style: none;
     border-radius: 1rem;
-    background-color: #17bce0;
+    background-color: #eee;
     width: 50rem;
     padding: 0.5rem;
+
+    @media screen and (max-width: $bp-largest) {
+      width: 45rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      width: 40rem;
+    }
+
+    @media screen and (max-width: $bp-small) {
+      width: 35rem;
+    }
 
     &__day {
       display: flex;
       justify-content: center;
       border: 1px solid #333;
+      color: #333;
       border-radius: 1rem;
       flex: 1;
       font-size: 1.4rem;
       padding: 1rem;
       cursor: pointer;
       transition: transform 0.2s;
+
+      @media screen and (max-width: $bp-small) {
+        padding: .5rem;
+      }
 
       &:hover {
         background-color: var(--color-primary-dark);
@@ -258,15 +427,37 @@ label:active:after {
     border-radius: 1rem;
     padding: 1rem;
     margin-top: 1.5rem;
-    background-color: #2ea7e0;
+    background-color: var(--color-primary-light);
+    box-shadow: var(--shadow-dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media screen and (max-width: $bp-largest) {
+      width: 45rem;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      width: 40rem;
+    }
+
+    @media screen and (max-width: $bp-small) {
+      width: 35rem;
+    }
 
     &__name {
       font-size: 1.8rem;
       font-weight: 400;
       align-self: center;
+      color: var(--color-primary-dark);
+
+      @media screen and (max-width: $bp-medium) {
+        font-size: 1.4rem;
+      }
+  
+      @media screen and (max-width: $bp-small) {
+        font-size: 1.4rem;
+      }
     }
 
     &__details {
@@ -282,6 +473,7 @@ label:active:after {
       &__data {
         &--phrase {
           font-size: 2rem;
+          color: var(--color-primary-dark);
         }
         &--minmax {
           font-size: 1.4rem;

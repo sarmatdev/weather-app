@@ -9,7 +9,6 @@ import {
   renderLoader,
   clearUI,
   clearLoader,
-  modeState
 } from './Views/base';
 import * as homeView from './Views/homeView';
 import * as forecastView from './Views/forecastView';
@@ -76,7 +75,7 @@ const darkmodeController = () => {
 // Current Location Controller
 const currentController = async () => {
   // Render loader
-  const parent = document.querySelector('.weather-container');
+  const parent = document.querySelector('.weather');
   renderLoader(parent);
 
   // Create Current instance in state.current if it is empty
@@ -110,11 +109,6 @@ const currentController = async () => {
   }
 };
 
-// elements.weatherContainer.addEventListener('click', () => {
-//   const { current } = state;
-//   forecastController(current);
-// });
-
 // Forecast controller
 const forecastController = async current => {
   if (!state.forecast && state.current) state.forecast = new Forecast(current);
@@ -124,25 +118,17 @@ const forecastController = async current => {
 
   // Render Forecast Container
   const weather = document.querySelector('.weather');
-  forecastView.renderForecastContainer(weather);
+  forecastView.renderForecastContainer(weather, state.forecast.buttonDays);
 
   // Render Forecast navigation buttons
   const navbar = document.querySelector('.forecast__nav');
-  state.forecast.buttonDays.forEach((el, index) =>
-    forecastView.renderForecastNav(el, index, navbar)
-  );
-
-  const forecastContainer = document.querySelector('.forecasts__container');
-  // forecastView.renderForecast(state.forecast.weather[1])
-  // for (let i = 0; i < state.forecast.weather.length; i++) {
-  //   forecastView.renderForecast(state.forecast.weather[i]);
-  // }
 
   // Handle navigation buttons
 
   navbar.addEventListener('click', e => {
-    const id = e.target.closest('.day').dataset.itemid;
-    const buttons = document.querySelectorAll('.day');
+    const id = e.target.closest('.forecast__nav__day').dataset.itemid;
+    const buttons = document.querySelectorAll('.forecast__nav__day');
+    const forecastContainer = document.querySelector('.forecast__list')
 
     // Adding active class for active button
     buttons.forEach(el => {
@@ -151,6 +137,7 @@ const forecastController = async current => {
     buttons[id].classList.add('active');
 
     forecastView.clearForecast(forecastContainer);
+
 
     // Render dayly forecast list
     state.forecast.weather[id].forEach(el =>
