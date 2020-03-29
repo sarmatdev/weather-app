@@ -27,24 +27,18 @@ export const renderCurrentWeather = (current, parent) => {
   const markup = `
         <h1 class="weather__location">${current.city}, ${current.country}</h1>
         <div class="weather__info">
-          <svg class="weather__info-icon">
+          <svg class="weather__icon">
             <use xlink:href="#${current.weather.icon}"></use>
           </svg>
-          <div class="weather__info-temp">${current.weather.temp}ºC</div>
+          <div class="weather__temp">${current.weather.temp}ºC</div>
         </div>
 
         <div class="weather__detail">
-          <p class="weather__detail--text">${current.weather.name}</p>
-          <div class="weather__detail--minmax">
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_min-temp"></use>
-            </svg>
-            <p>${current.weather.temp_min}ºc</p>
+          <p class="weather__text">${current.weather.name}</p>
+          <div class="weather__minmax">
+            <span>${current.weather.temp_min}ºc</span>
             <span>•</span>
-            <p>${current.weather.temp_max}ºc</p>
-            <svg class="weather__detail--minmax__icon">
-              <use xlink:href="#symbol-defs_max-temp"></use>
-            </svg>
+            <span>${current.weather.temp_max}ºc</span>
           </div>
         </div>
   `;

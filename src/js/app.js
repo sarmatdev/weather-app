@@ -4,12 +4,7 @@ import Forecast from './Models/Forecast';
 import DarkMode from './Models/Dark';
 
 // Views
-import {
-  elements,
-  renderLoader,
-  clearUI,
-  clearLoader,
-} from './Views/base';
+import { elements, renderLoader, clearUI, clearLoader } from './Views/base';
 import * as homeView from './Views/homeView';
 import * as forecastView from './Views/forecastView';
 
@@ -97,15 +92,8 @@ const currentController = async () => {
     // Render Results on UI
     homeView.renderCurrentWeather(state.current, parent);
 
-    let isOpen = true;
-    parent.addEventListener('click', () => {
-      if (isOpen === true) {
-        parent.classList.add('open');
-        const { current } = state;
-        forecastController(current);
-        isOpen = false;
-      }
-    });
+    const { current } = state;
+    forecastController(current);
   }
 };
 
@@ -121,14 +109,14 @@ const forecastController = async current => {
   forecastView.renderForecastContainer(weather, state.forecast.buttonDays);
 
   // Render Forecast navigation buttons
-  const navbar = document.querySelector('.forecast__nav');
+  const navbar = document.querySelector('.nav');
 
   // Handle navigation buttons
 
   navbar.addEventListener('click', e => {
-    const id = e.target.closest('.forecast__nav__day').dataset.itemid;
-    const buttons = document.querySelectorAll('.forecast__nav__day');
-    const forecastContainer = document.querySelector('.forecast__list')
+    const id = e.target.closest('.nav__day').dataset.itemid;
+    const buttons = document.querySelectorAll('.nav__day');
+    const forecastContainer = document.querySelector('.forecast__list');
 
     // Adding active class for active button
     buttons.forEach(el => {
@@ -137,7 +125,6 @@ const forecastController = async current => {
     buttons[id].classList.add('active');
 
     forecastView.clearForecast(forecastContainer);
-
 
     // Render dayly forecast list
     state.forecast.weather[id].forEach(el =>

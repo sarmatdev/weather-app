@@ -22,25 +22,15 @@
       color: var(--color-primary-light);
     }
 
-    &__info-temp {
+    &__info {
       color: var(--color-grey-dark-1);
     }
 
     &__detail {
-      &--text {
-        font-size: 3rem;
-        color: var(--color-primary-dark);
-      }
-
-      &--minmax {
-        color: var(--color-primary-dark);
-        &__icon {
-          height: 3rem;
-          width: 1rem;
-          fill: var(--color-grey-dark-1);
-          margin: 1rem;
-        }
-      }
+      color: var(--color-primary-dark);
+    }
+    &__icon {
+      fill: var(--color-grey-dark-1);
     }
   }
 
@@ -49,28 +39,21 @@
       color: var(--color-primary-light);
     }
     &__nav {
-      background-color: var(--color-primary);
-      &__day {
-        color: var(--color-primary-light);
-      }
+      background-color: var(--color-primary-dark);
     }
-
+    &__day {
+      color: var(--color-primary);
+    }
     &__item {
       background-color: var(--color-primary);
+    }
 
-      &__name {
-        color: var(--color-primary-light);
-      }
+    &__name {
+      color: var(--color-primary-light);
+    }
 
-      &__details {
-        &__data {
-          color: var(--color-primary-light);
-        }
-        &__temp {
-          color: var(--color-primary-light);
-          
-        }
-      }
+    &__details {
+      color: var(--color-primary-light);
     }
   }
 }
