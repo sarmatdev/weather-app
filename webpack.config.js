@@ -30,9 +30,22 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
+
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './'
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.svg$/,
